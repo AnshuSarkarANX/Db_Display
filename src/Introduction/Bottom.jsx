@@ -115,16 +115,14 @@ const tableData = data ? flattenData(data) : [];
 
 return (
   <div>
-    <h2>Contact & Links</h2>
+    <h2>Bottom</h2>
 
     {loading && <p>Loading...</p>}
     {error && <p style={{ color: "red" }}>Error: {error}</p>}
 
     <div style={{ marginBottom: "10px" }}>
       <button
-        onClick={() =>
-          callApi(`/static-content/migration/introduction/bottom`)
-        }
+        onClick={() => callApi(`/static-content/migration/introduction/bottom`)}
         disabled={loading}
       >
         Call API
@@ -167,7 +165,7 @@ return (
                     style={{
                       padding: "4px 8px",
                       borderRadius: "4px",
-                      
+
                       fontWeight: "bold",
                     }}
                   >
