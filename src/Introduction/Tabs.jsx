@@ -2,7 +2,6 @@ import { useApiCall } from "../ApiHooks";
 
 const Tabs = () => {
   const { loading, data , error, callApi } = useApiCall();
-  // Add this to see what the API actually returns
 
   // Flatten the nested data structure
   const flattenData = (apiData) => {
