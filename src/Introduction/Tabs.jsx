@@ -1,8 +1,9 @@
+import { useState } from "react";
 import { useApiCall } from "../ApiHooks";
 
 const Tabs = () => {
-  const { loading, data , error, callApi } = useApiCall();
-
+  const { loading, data, error, callApi } = useApiCall();
+const [open, setOpen] = useState(true);
   // Flatten the nested data structure
   const flattenData = (apiData) => {
     if (!apiData || !Array.isArray(apiData)) return [];
@@ -100,9 +101,14 @@ const Tabs = () => {
             Export to CSV
           </button>
         )}
+        {tableData.length > 0 && (
+          <button onClick={() => setOpen(!open)} style={{ marginLeft: "10px" }}>
+            {open ? "Close Table" : "Open Table"}
+          </button>
+        )}
       </div>
 
-      {tableData.length > 0 && (
+      {open && tableData.length > 0 && (
         <div style={{ marginTop: "20px", overflowX: "auto" }}>
           <table
             border="1"
